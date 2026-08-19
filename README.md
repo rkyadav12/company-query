@@ -309,17 +309,6 @@ the top of the slider there is no upper limit, so those old companies still show
   identical.
 
 
-## Author
-
-**deepratan** - built the scraper, the cleaning pipeline, the analysis and the app.
-
-- Instagram: [@deepratankushwaha](https://instagram.com/deepratankushwaha)
-- LinkedIn: [/in/deepratankushwaha](https://www.linkedin.com/in/deepratankushwaha/)
-- Phone: +91 98874 10890
-
-The contact details are also available on the app's About page.
-
-
 ## Disclaimer
 
 This project is for analytical and educational purposes. The underlying company
