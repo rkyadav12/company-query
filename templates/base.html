@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}AmbitionBox Analysis{% endblock %}</title>
+  <meta name="description" content="Filter, explore and visualize company data from AmbitionBox.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect x='3' y='12' width='4' height='8' rx='1' fill='%2306B6D4'/><rect x='10' y='7' width='4' height='13' rx='1' fill='%238B5CF6'/><rect x='17' y='3' width='4' height='17' rx='1' fill='%2306B6D4'/></svg>">
+</head>
+<body>
+  <div class="bg-aurora" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="{{ url_for('index') }}">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true"><rect x="3" y="12" width="4" height="8" rx="1" fill="#06B6D4"/><rect x="10" y="7" width="4" height="13" rx="1" fill="#8B5CF6"/><rect x="17" y="3" width="4" height="17" rx="1" fill="#06B6D4"/></svg></span>
+      <span class="brand-text">AmbitionBox<span class="brand-accent">Analysis</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="{{ url_for('index') }}" class="{% block nav_home %}{% endblock %}">Home</a>
+      <a href="{{ url_for('explore') }}" class="{% block nav_explore %}{% endblock %}">Explore</a>
+      <a href="{{ url_for('dashboard') }}" class="{% block nav_dashboard %}{% endblock %}">Dashboard</a>
+      <a href="{{ url_for('about') }}" class="{% block nav_about %}{% endblock %}">About</a>
+    </nav>
+    <a class="nav-cta" href="{{ url_for('explore') }}">Launch tool</a>
+    <button class="nav-burger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><strong>AmbitionBox Analysis</strong></div>
+      <p>Explore and visualize company data across India's major tech hubs. Built with Flask and Chart.js.</p>
+      <p class="muted">Data sourced from AmbitionBox listings, for analytical and educational use.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
+  <script src="{{ url_for('static', filename='js/creator.js') }}"></script>
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>
